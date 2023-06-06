@@ -1,0 +1,72 @@
+body {
+    background: #090909;
+  }
+  
+.bg-black {
+    background: #000;
+}
+
+.custom-card {
+    height: 400px;
+  }
+
+.custom-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.card-project:hover{
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.nav-flag {
+  height: 40px; 
+  width: auto; 
+}
+
+
+/* Media queries */
+@media (max-width: 768px) {
+  /* Estilos para pantallas de hasta 768px de ancho */
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  /* Definición de la rejilla para dispositivos móviles */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas en pantallas más pequeñas */
+    grid-gap: 20px; /* Espacio entre las celdas */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Estilos para pantallas de hasta 576px de ancho */
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+
+/* Estilos de las tarjetas */
+.card {
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas en pantallas más pequeñas */
+  }
+}

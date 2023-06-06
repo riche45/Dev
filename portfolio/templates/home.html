@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="row bg-black">
+  <div class="col-md-4 d-flex align-items-start">
+    <img src="{% static 'portfolio/imageCv.png' %}" alt="" class="img-fluid rounded-circle" style="max-width: 230px;">
+  </div>
+
+  <div class="col-md-8">
+    <h1><strong>Richard Garcia Vizcaino</strong></h1>
+    <h3>Junior Python Developer</h3>
+    <p>¡Hola! Soy Richard, un apasionado desarrollador en formación con un enfoque en Python.    Recientemente me he graduado en un programa de formación en desarrollo web y estoy   emocionado por comenzar mi carrera en el mundo de
+    la programación. Durante mi formación,     he adquirido conocimientos en tecnologías web como HTML, CSS, JavaScript y, por supuesto, Python. Estoy entusiasmado por poner en práctica mis habilidades y aprender de proyectos reales. Soy un aprendiz rápido, dispuesto a enfrentar nuevos desafíos y colaborar en equipos. Si estás buscando
+    a alguien con pasión y motivación para contribuir a tu proyecto, ¡no dudes en contactarme! Estoy ansioso por crecer y desarrollarme como profesional en la industria del desarrollo web.</p>
+    <a href="{% static 'portfolio/Descargar_CV.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3" target="_blank">Descargar CV</a>
+  </div>
+
+</header>
+
+
+
+
+<div class="row my-4 text-center">
+  <div class="col">
+    <h3>My Projects</h3>
+    <p>He trabajado en algunos proyectos interesantes, en lo que llevo de carrera. demostrando mis habilidades en
+      desarrollo web e ingeniería de software. Estos proyectos incluyen sitios de tareas y proyectos, sistemas de
+      gestión de contenido y aplicaciones web. Me esfuerzo por ofrecer soluciones de alta calidad que satisfagan las
+      necesidades del cliente y brinden una excelente experiencia de usuario. ¡Explore mi cartera para ver algunos proyectos
+      en los que he trabajado! </p>
+  </div>
+</div>
+
+<div class="row">
+  {% for project in projects %}
+  <div class="col-md-4 p-4">
+    <div class="card bg-black card-project">
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" class="img-fluid custom-image">
+      <div class="card-body">
+        <h2>{{ project.title }}</h2>
+        <p>{{ project.description }}</p>
+
+        {% if project.url %}
+        <a href="{{ project.url }}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{ project.url }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
+</div>
