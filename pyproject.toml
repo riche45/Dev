@@ -9,6 +9,7 @@ authors = ["Richard <tayrona7@hotmail.com>"]
 python = "^3.11"
 django = "^3.2.4"
 requests = "^2.26.0"
+environ = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.1.0"]
