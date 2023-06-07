@@ -1,7 +1,7 @@
 databases:
   - name: productionDatabase
-    databaseName: productionDatabase
-    user: productionDatabase
+    databaseName: productiondatabase_67dr
+    user: productiondatabase_67dr_user
 
 services:
   - type: web
