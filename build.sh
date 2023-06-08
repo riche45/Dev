@@ -3,7 +3,7 @@
 set -o errexit
 
 # Instalar dependencias
-poetry install
+poetry install --no-root
 
 # Ejecutar comandos de construcción
 python manage.py collectstatic --no-input
