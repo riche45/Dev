@@ -1,15 +1,17 @@
 
 [tool.poetry]
-name = "my-project"
+name = "django_portfolio"
 version = "0.1.0"
 description = "proyecto de portafolio"
 authors = ["Richard <tayrona7@hotmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.7"
 django = "^3.2.4"
 requests = "^2.26.0"
 environ = "^1.0.0"
+dj-database-url = "^2.0.0"
+psycopg2-binary = "^2.9.6"
 
 [build-system]
 requires = ["poetry-core>=1.1.0"]

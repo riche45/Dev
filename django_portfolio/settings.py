@@ -17,7 +17,8 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-import environ
+import os
+from os import environ
 
 env = environ.Env()
 
@@ -31,12 +32,18 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-in7kh8!)jb)6o5+ykc51rje5b$f!7dx@f!#&la18qvipg+^)av'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-in7kh8!)jb)6o5+ykc51rje5b$f!7dx@f!#&la18qvipg+^)av')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = ['djangoapp-y9jg.onrender.com', 'www.rgv.com.co']
+external_hostname = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+custom_domain = 'www.rgv.com.co'  
+
+if external_hostname:
+    ALLOWED_HOSTS = [external_hostname, custom_domain]
+else:
+    ALLOWED_HOSTS = [custom_domain]
 
 
 # Application definition
@@ -49,7 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'portfolio'
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -95,12 +102,16 @@ DATABASES = {
     }
 }
 '''
-import dj_database_url
+
+import dj_database_url 
+
 
 DATABASES = {
 
-    'default': dj_database_url.parse(env('DATABASE_URL'))
-
+    'default': dj_database_url.config(
+        default='postgresql://postgres:postgres@dpg-chvk600rddlbpl18om2g-a:5432/base de datos de producción',
+        conn_max_age=600
+    )
 }
 
 # Password validation
